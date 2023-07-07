@@ -18,6 +18,9 @@ mongoose.connect('mongodb://marcoxzh3:MarcoXZh3_ualberta.ca@localhost:27017/stee
     console.error('Error', error);
   });
 
+const readDelegatorRouter = require('readDelegator');
+
+app.use('/cnbuddy-delegator', readDelegatorRouter);
 
 app.use(cors());
 app.use(express.json());
