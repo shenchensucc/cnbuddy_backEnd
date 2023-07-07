@@ -6,15 +6,15 @@ require('dotenv').config();
 
 const app = express();
 const port = process.env.PORT || 5000;
-const uri = process.env.ATLAS_URI;
-mongoose.connect(uri, { useNewUrlParser: true, useCreateIndex: true }
-);
-
-const connection = mongoose.connection;
-coonection.once('open', () => {
-    console.log("MongoDB connected");
+//const uri = process.env.ATLAS_URI;
+mongoose.connect(mongodb://marcoxzh3:MarcoXZh3_ualberta.ca@localhost:27017/steemitdb, { 
+                 useNewUrlParser: true, 
+    useUnifiedTopology: true })
+.then(() => { console.log("MongoDB connected");
+            });
+.catch((error) => {
+    console.eror('Error', error);
 });
-
 
 app.use(cors());
 app.use(express.json());
