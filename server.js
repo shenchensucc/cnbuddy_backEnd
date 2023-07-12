@@ -31,6 +31,7 @@ router.get('/cnbuddy-delegator', async (req, res) => {
   }
 });
 
+console.log(data);
 //use delegatorRouter 
 //const readDelegatorRouter = require('readDelegator.js');
 //app.use('/cnbuddy-delegator', readDelegatorRouter);
