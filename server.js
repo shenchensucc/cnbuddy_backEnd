@@ -1,6 +1,7 @@
 const express = require('express');
 const cors = require('cors');
 const mongoose = require('mongoose');
+const router = require('express').Router();
 
 require('dotenv').config();
 
@@ -20,9 +21,19 @@ mongoose.connect('mongodb://marcoxzh3:MarcoXZh3_ualberta.ca@localhost:27017/stee
     console.error('Error', error);
   });
 
+router.get('/cnbuddy-delegator', async (req, res) => {
+  try {
+    const collectionName = 'steemitdb'; // connect with the db
+    const data = await mongoose.connection.db.collection(collectionName).find().toArray();
+    res.json(data);
+  } catch (error) {
+    res.status(500).json({ error: 'Failed to fetch data from the database' });
+  }
+});
+
 //use delegatorRouter 
-const readDelegatorRouter = require('readDelegator.js');
-app.use('/cnbuddy-delegator', readDelegatorRouter);
+//const readDelegatorRouter = require('readDelegator.js');
+//app.use('/cnbuddy-delegator', readDelegatorRouter);
 
 //do not know what below means
 app.use(cors());
