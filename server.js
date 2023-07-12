@@ -21,7 +21,7 @@ mongoose.connect('mongodb://marcoxzh3:MarcoXZh3_ualberta.ca@localhost:27017/stee
   });
 
 //use delegatorRouter 
-const readDelegatorRouter = require('/readDelegator');
+const readDelegatorRouter = require('/readDelegator.js');
 app.use('/cnbuddy-delegator', readDelegatorRouter);
 
 //do not know what below means
