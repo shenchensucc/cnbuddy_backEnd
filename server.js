@@ -26,12 +26,13 @@ router.get('/cnbuddy-delegator', async (req, res) => {
     const collectionName = 'steemitdb'; // connect with the db
     const data = await mongoose.connection.db.collection(collectionName).find().toArray();
     res.json(data);
+    console.log(data);
   } catch (error) {
     res.status(500).json({ error: 'Failed to fetch data from the database' });
   }
 });
 
-console.log(data);
+
 //use delegatorRouter 
 //const readDelegatorRouter = require('readDelegator.js');
 //app.use('/cnbuddy-delegator', readDelegatorRouter);
