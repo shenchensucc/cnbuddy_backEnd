@@ -33,13 +33,6 @@ connection.once('open', () =>{
   console.log("MongoDB -once open- tested successfully");
 });
 
-// Router Route get function;
-let User = [];
-
-router.route('/').get((req, res) => {
- res.send('Hello, get back to you lol');
-});
-
 /* router get request function test
 router.get('/cnbuddy-delegator', async (req, res) => {
   try {
