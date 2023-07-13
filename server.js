@@ -22,7 +22,7 @@ mongoose.connect('mongodb://marcoxzh3:MarcoXZh3_ualberta.ca@localhost:27017/stee
   });
 
 const connection = mongoose.connection;
-conection.once('open', () =>{
+connection.once('open', () =>{
   console.log("MongoDB -once open- tested successfully");
 });
 
