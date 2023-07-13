@@ -10,11 +10,11 @@ const app = express();
 const port = 5000;
 
 //Testing 
-
+/*
 app.get('/',(req, res) => {
   res.send('Hello, get back to you lol');
 });
-
+*/
 
 //Connect to the mongobd in the VPS machine
 mongoose.connect('mongodb://marcoxzh3:MarcoXZh3_ualberta.ca@localhost:27017/steemitdb', {
@@ -33,7 +33,7 @@ connection.once('open', () =>{
   console.log("MongoDB -once open- tested successfully");
 });
 
-/* router get request function test
+// router get request function test
 router.get('/cnbuddy-delegator', async (req, res) => {
   try {
     const collectionName = 'steemitdb'; // connect with the db
@@ -44,7 +44,7 @@ router.get('/cnbuddy-delegator', async (req, res) => {
     res.status(500).json({ error: 'Failed to fetch data from the database' });
   }
 });
-*/
+
 
 //use delegatorRouter 
 //const readDelegatorRouter = require('readDelegator.js');
