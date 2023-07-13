@@ -26,7 +26,16 @@ connection.once('open', () =>{
   console.log("MongoDB -once open- tested successfully");
 });
 
-//router get request function
+// Router Route get function;
+let User = [];
+
+router.route('/').get((req, res) => {
+  User.find()
+    .then(users => res.json(users))
+    .catch(err => res.status(400).json('Error: ' + err));
+});
+
+/* router get request function test
 router.get('/cnbuddy-delegator', async (req, res) => {
   try {
     const collectionName = 'steemitdb'; // connect with the db
@@ -37,7 +46,7 @@ router.get('/cnbuddy-delegator', async (req, res) => {
     res.status(500).json({ error: 'Failed to fetch data from the database' });
   }
 });
-
+*/
 
 //use delegatorRouter 
 //const readDelegatorRouter = require('readDelegator.js');
