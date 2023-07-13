@@ -7,7 +7,7 @@ require('dotenv').config();
 
 const app = express();
 //port is default 5000 for react applciation 
-const port = process.env.PORT || 5000;
+const port = 5000;
 
 //Testing 
 
