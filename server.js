@@ -13,7 +13,7 @@ const port = 5000;
 
 app.get('/',(req, res) => {
   res.send('Hello, get back to you lol');
-};
+});
 
 
 //Connect to the mongobd in the VPS machine
