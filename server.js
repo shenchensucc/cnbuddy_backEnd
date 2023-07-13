@@ -34,7 +34,7 @@ connection.once('open', () =>{
 });
 
 // router get request function test
-router.get('/cnbuddy-delegator', async (req, res) => {
+app.get('/cnbuddy-delegator', async (req, res) => {
   try {
     const collectionName = 'steemitdb'; // connect with the db
     const data = await mongoose.connection.db.collection(collectionName).find().toArray();
