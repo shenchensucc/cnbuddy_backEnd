@@ -9,6 +9,13 @@ const app = express();
 //port is default 5000 for react applciation 
 const port = process.env.PORT || 5000;
 
+//Testing 
+
+app.get('/',(req, res) => {
+  res.send('Hello, get back to you lol');
+};
+
+
 //Connect to the mongobd in the VPS machine
 mongoose.connect('mongodb://marcoxzh3:MarcoXZh3_ualberta.ca@localhost:27017/steemitdb', {
   useNewUrlParser: true,
