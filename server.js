@@ -34,7 +34,7 @@ connection.once('open', () =>{
 });
 //console.log data into vps try
 
-let data1 = await mongoose.connection.db.collection(collectionName).find().toArray();
+let data1 = mongoose.connection.db.collection(collectionName).find().toArray();
 console.log(data1);
 
 // router get request function test
