@@ -32,6 +32,10 @@ const connection = mongoose.connection;
 connection.once('open', () =>{
   console.log("MongoDB -once open- tested successfully");
 });
+//console.log data into vps try
+
+let data1 = await mongoose.connection.db.collection(collectionName).find().toArray();
+console.log(data1);
 
 // router get request function test
 app.get('/cnbuddy-delegator', async (req, res) => {
