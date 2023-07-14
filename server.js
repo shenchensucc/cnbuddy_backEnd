@@ -38,7 +38,7 @@ connection.once('open', () =>{
 
 async function fetchData() {
   try {
-    const data1 = await mongoose.connection.db.collection('steemitdb').find().toArray();
+    const data1 = await mongoose.connection.db.collection().find().toArray();
     console.log(data1);
   } catch (error) {
     console.error(error);
