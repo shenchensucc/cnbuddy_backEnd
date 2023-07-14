@@ -38,7 +38,7 @@ connection.once('open', () =>{
 
 async function fetchData() {
   try {
-    const data1 = await mongoose.connection.db.collection().find().toArray();
+    const data1 = await mongoose.connection.db.collection('delegations').find().toArray();
     console.log(data1);
   } catch (error) {
     console.error(error);
@@ -51,7 +51,7 @@ fetchData();
 // router get request function test
 app.get('/cnbuddy-delegator', async (req, res) => {
   try {
-    const collectionName = 'steemitdb'; // connect with the db
+    const collectionName = 'delegations'; // connect with the db
     const data = await mongoose.connection.db.collection(collectionName).find().toArray();
     res.json(data);
     console.log(data);
