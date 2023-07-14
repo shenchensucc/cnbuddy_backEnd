@@ -9,7 +9,7 @@ const app = express();
 //port is default 5000 for react applciation 
 const port = 5000;
 
-//Testing 
+//Testing the get request
 
 app.get('/',(req, res) => {
   res.send('Hello, get back to you lol');
@@ -32,10 +32,21 @@ const connection = mongoose.connection;
 connection.once('open', () =>{
   console.log("MongoDB -once open- tested successfully");
 });
-//console.log data into vps try
 
-let data1 = mongoose.connection.db.collection('steemitdb').find().toArray();
-console.log(data1);
+
+//Testing console.log data into vps try
+
+async function fetchData() {
+  try {
+    const data1 = await mongoose.connection.db.collection('steemitdb').find().toArray();
+    console.log(data1);
+  } catch (error) {
+    console.error(error);
+  }
+}
+
+fetchData();
+
 
 // router get request function test
 app.get('/cnbuddy-delegator', async (req, res) => {
