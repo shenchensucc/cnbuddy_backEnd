@@ -2,6 +2,13 @@ const express = require('express');
 const cors = require('cors');
 const mongoose = require('mongoose');
 
+require('dotenv').config();
+
+const app = express();
+//port is default 5000 for react applciation 
+const port = 5000;
+
+
 // Allow all origins, replace '*' with the specific origin if needed
 app.use((req, res, next) => {
   res.setHeader('Access-Control-Allow-Origin', '*');
@@ -10,11 +17,6 @@ app.use((req, res, next) => {
   next();
 });
 
-require('dotenv').config();
-
-const app = express();
-//port is default 5000 for react applciation 
-const port = 5000;
 
 //Connect to the mongobd in the VPS machine
 mongoose.connect('mongodb://marcoxzh3:MarcoXZh3_ualberta.ca@localhost:27017/steemitdb', {
