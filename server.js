@@ -1,13 +1,13 @@
 const express = require('express');
 const cors = require('cors');
 const mongoose = require('mongoose');
+const https = require('https');
 
 require('dotenv').config();
 
 const app = express();
 //port is default 5000 for react applciation 
 const port = 5000;
-
 
 // Allow all origins, replace '*' with the specific origin if needed
 app.use((req, res, next) => {
@@ -16,6 +16,15 @@ app.use((req, res, next) => {
   res.setHeader('Access-Control-Allow-Headers', 'Content-Type');
   next();
 });
+
+// Load SSL/TLS certificates
+const privateKey = fs.readFileSync('server.key', 'utf8');
+const certificate = fs.readFileSync('server.cert', 'utf8');
+const credentials = { key: privateKey, cert: certificate };
+
+
+// Use HTTPS server
+const httpsServer = https.createServer(credentials, app);
 
 
 //Connect to the mongobd in the VPS machine
@@ -49,7 +58,7 @@ app.use(cors());
 app.use(express.json());
 
 //listening to the port request
-app.listen(port, () => {
+httpsServer.listen(port, () => {
     console.log(`Server is running on port: ${port}`);
 });
            
