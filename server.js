@@ -1,8 +1,6 @@
 const express = require('express');
 const cors = require('cors');
 const mongoose = require('mongoose');
-const https = require('https');
-const fs = require('fs');
 require('dotenv').config();
 
 const app = express();
@@ -17,18 +15,10 @@ app.use((req, res, next) => {
   next();
 });
 
-// Load SSL/TLS certificates
-const privateKey = fs.readFileSync('server.key', 'utf8');
-const certificate = fs.readFileSync('server.cert', 'utf8');
-const credentials = { key: privateKey, cert: certificate };
-
-
-// Use HTTPS server
-const httpsServer = https.createServer(credentials, app);
 
 
 //Connect to the mongobd in the VPS machine
-mongoose.connect('mongodb://marcoxzh3:MarcoXZh3_ualberta.ca@localhost:27017/steemitdb', {
+mongoose.connect(process.env.ATLAS_URI, {
   useNewUrlParser: true,
   useUnifiedTopology: true
 })
@@ -58,8 +48,6 @@ app.use(cors());
 app.use(express.json());
 
 //listening to the port request
-httpsServer.listen(port, () => {
+app.listen(port, () => {
     console.log(`Server is running on port: ${port}`);
 });
-           
-                     
